@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { MyService } from './my-service.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  template: `<p>{{ message }}</p>`
 })
 export class AppComponent {
-  constructor() {}
+  message: string;
+
+  constructor(private myService: MyService) {
+    this.message = myService.getData();
+  }
 }
